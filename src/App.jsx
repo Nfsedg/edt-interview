@@ -1,31 +1,33 @@
-import { useEffect, useState } from 'react'
-import getAllRestaurants from './services/restaurants'
-import './App.css'
+import { useEffect, useState } from "react";
+import getAllRestaurants from "./services/restaurants";
+import Card from "./components/Card";
+import DropdownSort from "./components/DropdownSort";
+import "./App.css";
 
 function App() {
-  const [count, setCount] = useState(0)
-
-  getAllRestaurants()
-    .then(e => console.log(e))
+  const [restaurants, setRestaurants] = useState([]);
+  useEffect(() => {
+    getAllRestaurants()
+      .then((data) => data.json())
+      .then((res) => setRestaurants(res));
+  }, []);
 
   return (
-    <>
-      <h1 className="text-3xl font-bold underline">
-      Hello world!
-    </h1>
-      <div className="card">
-        <button onClick={() => setCount((count) => count + 1)}>
-          count is {count}
-        </button>
-        <p>
-          Edit <code>src/App.jsx</code> and save to test HMR
-        </p>
+    <div className="p-2 grid gap-4">
+      <div className="grid gap-1">
+        <h1 className="text-4xl">Welcome to Melp</h1>
+        <h2 className="text-xl">The best restaurants in the city</h2>
       </div>
-      <p className="read-the-docs">
-        Click on the Vite and React logos to learn more
-      </p>
-    </>
-  )
+      <div className="flex justify-end">
+        <DropdownSort arr={restaurants} setArr={setRestaurants}/>
+      </div>
+      <div className="grid gap-2">
+        {restaurants.map((item) => (
+          <Card key={item.id} restaurant={item} />
+        ))}
+      </div>
+    </div>
+  );
 }
 
-export default App
+export default App;
