@@ -28,7 +28,7 @@ export default function Card({ restaurant }) {
         <p className="mb-3 font-normal text-gray-700 dark:text-gray-400">
           St. {address.street}, {address.city}, {address.state}
         </p>
-        <a className="flex gap-2" href="#">
+        <a className="flex gap-2 underline" style={{color: "#1a56db"}} href="#">
           <Globe /> {contact.site}
         </a>
         <p className="flex gap-2 font-normal text-gray-700 dark:text-gray-400">
