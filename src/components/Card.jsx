@@ -3,7 +3,6 @@ import Phone from "../assets/Phone";
 import Mail from "../assets/Mail";
 import Globe from "../assets/Globe";
 import ShareButton from "./ShareButton";
-import { Helmet } from "react-helmet";
 
 export default function Card({ restaurant }) {
   const { name, contact, address, rating } = restaurant;
@@ -11,16 +10,6 @@ export default function Card({ restaurant }) {
   const emptyStars = new Array(Number(4 - rating)).fill(null);
   return (
     <div>
-      <Helmet>
-        <meta property="og:type" content="website" />
-        <meta property="og:title" content={name} />
-        <meta property="og:description" content={address} />
-        <meta
-          property="og:image"
-          content="https://www.google.com/url?sa=i&url=https%3A%2F%2Fwww.mealnj.com%2F&psig=AOvVaw1eT7TFnsEjLdU6CGs0Rnhh&ust=1703393825556000&source=images&cd=vfe&opi=89978449&ved=0CBEQjRxqFwoTCPCD59TipIMDFQAAAAAdAAAAABAD"
-        />
-        {/* Add more meta tags as needed */}
-      </Helmet>
       <div className="max-w-sm bg-white border border-gray-200 rounded-lg shadow dark:bg-gray-800 dark:border-gray-700">
         <div className="p-5 grid gap-2">
           <h4 className="text-lg font-bold tracking-tight text-gray-900 dark:text-white">
