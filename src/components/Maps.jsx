@@ -38,7 +38,6 @@ const Map = ({ restaurants }) => {
     }),
     []
   );
-  console.log(circleData);
   const handleOnSubmitSearch = (e) => {
     e.preventDefault();
     setRadius(inputRad);
@@ -115,7 +114,7 @@ const Map = ({ restaurants }) => {
     <div style={{ width: "100%" }}>
       <div className="mb-4">
         <form onSubmit={handleOnSubmitSearch}>
-          <p className="flex items-center text-left text-lg mb-1">
+          <p className="flex items-center justify-start text-left text-lg mb-1">
             Enter in meters, the radius to search restaurants in the map: (Drag the red marker to change position <img width={16} style={{margin: "0 2px"}} src="https://raw.githubusercontent.com/pointhi/leaflet-color-markers/master/img/marker-icon-red.png" />)
           </p>
           <div className="relative">
@@ -153,8 +152,8 @@ const Map = ({ restaurants }) => {
           </div>
         </form>
       </div>
-      <div className="flex text-left">
-        <div style={{ width: "250px" }} className="flex flex-col gap-4">
+      <div className="flex max-[720px]:flex-col  text-left">
+        <div style={{ width: "250px" }} className="flex flex-col gap-4 max-[720px]:mb-4">
           <div>
             <p>
               <span className="font-bold">Average Rating: </span>
