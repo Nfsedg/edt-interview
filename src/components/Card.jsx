@@ -2,6 +2,7 @@ import { Rating } from "flowbite-react";
 import Phone from "../assets/Phone";
 import Mail from "../assets/Mail";
 import Globe from "../assets/Globe";
+import { Link } from "react-router-dom";
 import ShareButton from "./ShareButton";
 
 export default function Card({ restaurant }) {
@@ -12,8 +13,10 @@ export default function Card({ restaurant }) {
     <div>
       <div className="max-w-sm bg-white border border-gray-200 rounded-lg shadow dark:bg-gray-800 dark:border-gray-700">
         <div className="p-5 grid gap-2">
-          <h4 className="text-lg font-bold tracking-tight text-gray-900 dark:text-white">
-            {name}
+          <h4 className="text-lg font-bold tracking-tight text-blue-600">
+            <Link className="text-blue-600" to={`/restaurant/${restaurant.id}`} >
+              {name}
+            </Link>
           </h4>
           <div className="mb-2 flex justify-center w-full">
             <div>
@@ -44,7 +47,7 @@ export default function Card({ restaurant }) {
             <Phone /> {contact.phone}
           </p>
           <div className="mt-4 flex w-full justify-end">
-            <ShareButton />
+            <ShareButton idRestaurant={restaurant.id} />
           </div>
         </div>
       </div>
