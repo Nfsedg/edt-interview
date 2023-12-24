@@ -13,8 +13,8 @@ export default function Card({ restaurant }) {
     <div>
       <div className="max-w-sm bg-white border border-gray-200 rounded-lg shadow dark:bg-gray-800 dark:border-gray-700">
         <div className="p-5 grid gap-2">
-          <h4 className="text-lg font-bold tracking-tight text-gray-900 dark:text-white">
-            <Link to={`/restaurant/${restaurant.id}`} >
+          <h4 className="text-lg font-bold tracking-tight text-blue-600">
+            <Link className="text-blue-600" to={`/restaurant/${restaurant.id}`} >
               {name}
             </Link>
           </h4>

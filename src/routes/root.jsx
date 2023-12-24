@@ -3,6 +3,7 @@ import {getAllRestaurants} from "../services/restaurants";
 import Card from "../components/Card";
 import DropdownSort from "../components/DropdownSort";
 import melpIcon from "../assets/melp.png";
+import Map from "../components/Maps";
 import "../App.css";
 
 export default function Root() {
@@ -16,11 +17,15 @@ export default function Root() {
 
   return (
     <div className="p-2 py-4 grid gap-4">
-      <div className="grid gap-1">
+      <div className="grid gap-1 mb-2">
         <img src={melpIcon} alt="melp icon" width={56} className="mx-auto" />
         <h1 className="text-4xl">Welcome to Melp</h1>
         <h2 className="text-xl">The best restaurants in the city</h2>
       </div>
+      <section>
+        {restaurants.length > 0 && <Map restaurants={restaurants} />}
+      </section>
+      <hr />
       <div className="flex justify-end">
         <DropdownSort arr={restaurants} setArr={setRestaurants} />
       </div>
